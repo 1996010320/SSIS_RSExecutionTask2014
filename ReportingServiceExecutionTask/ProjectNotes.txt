@@ -1,0 +1,21 @@
+--generate key
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools\sn.exe" -k ReportingServiceExecutionTaskKey.snk
+
+--extract key to publi file
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools\sn.exe" -p ReportingServiceExecutionTaskKey.snk public.out
+
+--read the key
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools\sn.exe" -t public.out
+
+
+
+--register 
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools\gacutil.exe" -if "C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Tasks\ReportingServiceExecutionTask.dll" 
+
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools\gacutil.exe" -if "C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Tasks\ReportingServiceExecutionTask_UI.dll" 
+
+
+—-unregister 
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools\gacutil.exe" -u ReportingServiceExecutionTask
+
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.0A\bin\NETFX 4.0 Tools\gacutil.exe" -u ReportingServiceExecutionTask_UI
